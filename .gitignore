@@ -1,0 +1,11 @@
+/.vs
+/BankAppNoMoney/obj
+/BankAppNoMoney
+/BankAppNoMoney/obj/Debug
+/BankAppNoMoney
+/BankAppNoMoney/obj
+/BankAppNoMoney
+/BankAppNoMoney/obj
+BankAppNoMoney/obj/project.nuget.cache
+BankAppNoMoney/obj/project.assets.json
+*.editorconfig

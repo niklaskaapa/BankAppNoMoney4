@@ -13,5 +13,7 @@ internal class Program
 
         Console.WriteLine("ff");
 
+        Console.WriteLine("test");
+
     }
 }
