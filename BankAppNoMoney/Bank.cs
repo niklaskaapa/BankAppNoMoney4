@@ -38,6 +38,8 @@ internal class Bank
         while (true)
         {
             Console.WriteLine("");
+            Console.WriteLine("");
+
             Console.WriteLine("----------Meny----------");
             Console.WriteLine("1. Skapa konto tryck[S] "); 
             Console.WriteLine("2. Ta bort konto[T]"); 
