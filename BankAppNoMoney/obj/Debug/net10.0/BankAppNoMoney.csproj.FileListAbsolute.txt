@@ -1,0 +1,14 @@
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\obj\Debug\net10.0\BankAppNoMoney.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\obj\Debug\net10.0\BankAppNoMoney.AssemblyInfoInputs.cache
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\obj\Debug\net10.0\BankAppNoMoney.AssemblyInfo.cs
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\obj\Debug\net10.0\BankAppNoMoney.csproj.CoreCompileInputs.cache
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\bin\Debug\net10.0\BankAppNoMoney.exe
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\bin\Debug\net10.0\BankAppNoMoney.deps.json
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\bin\Debug\net10.0\BankAppNoMoney.runtimeconfig.json
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\bin\Debug\net10.0\BankAppNoMoney.dll
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\bin\Debug\net10.0\BankAppNoMoney.pdb
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\obj\Debug\net10.0\BankAppNoMoney.dll
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\obj\Debug\net10.0\refint\BankAppNoMoney.dll
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\obj\Debug\net10.0\BankAppNoMoney.pdb
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\obj\Debug\net10.0\BankAppNoMoney.genruntimeconfig.cache
+C:\Users\Niklas\source\repos\BankAppNoMoney\BankAppNoMoney\obj\Debug\net10.0\ref\BankAppNoMoney.dll
