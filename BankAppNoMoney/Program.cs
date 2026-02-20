@@ -8,8 +8,17 @@ internal class Program
     static void Main(string[] args)
     {
 
+        Bank bank = new Bank();
+        
+        TestData testData = new TestData();
 
-        new Bank().ShowBankMenu();
+
+        testData.TestCalculateInteresRate(bank);
+
+        bank.ShowBankMenu();
+        
+
+        //new Bank().ShowBankMenu();
 
        
 

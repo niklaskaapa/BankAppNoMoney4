@@ -14,8 +14,9 @@ namespace BankAppNoMoney.Base
         internal string AccountName { get; set; } = "";
 
         internal string AccountNumber { get; set; } = "";
-
-        internal decimal InterestRate { get; set; } = 0;
+        
+        internal decimal InterestRate { get; set; } = 0.023m;
+        internal decimal InterestAmount { get; set; } = 0;
 
         protected List<BankTransaction> bankTransactions = new List<BankTransaction>();
 
@@ -90,6 +91,53 @@ namespace BankAppNoMoney.Base
             Console.WriteLine("Du har tagit ut " + amount + " kr");
 
         }
+
+        internal decimal CalculateYearlyInterestDaily(int year)
+        {
+            decimal totalInterest = 0m;
+
+            DateTime startDate = new DateTime(year, 1, 1);
+            DateTime endDate = new DateTime(year, 12, 31);
+
+            for (DateTime date = startDate; date <= endDate; date = date.AddDays(1))
+            {
+                decimal balanceForDay = GetBalanceForDate(date);
+
+                decimal dailyInterest = balanceForDay * (InterestRate / 365m);
+
+                totalInterest += dailyInterest;
+            }
+
+            return Math.Round (totalInterest, 2);
+        }
+
+        private decimal GetBalanceForDate(DateTime date)
+        {
+            decimal balance = 0m;
+
+            foreach (var transaction in bankTransactions)
+            {
+                if (transaction.TransactionDate.Date <= date.Date)
+                {
+                    balance += transaction.Amount;
+                }
+            }
+
+            return balance;
+        }
+
+
+        internal void DepositWithDate(decimal amount, DateTime date)
+        {
+            var t = new BankTransaction
+            {
+                Amount = amount,
+                TransactionDate = date
+            };
+
+            bankTransactions.Add(t);
+        }
+
 
     }
 }

@@ -37,8 +37,6 @@ internal class Bank
     {
         while (true)
         {
-            Console.WriteLine("");
-            Console.WriteLine("");
 
             Console.WriteLine("----------Meny----------");
             Console.WriteLine("1. Skapa konto tryck[S] "); 
@@ -165,9 +163,9 @@ internal class Bank
 
         foreach (var item in accounts)
         {
+            decimal yearlyInterest = item.CalculateYearlyInterestDaily(2025);
 
-
-            Console.WriteLine($"[{index}] Kontonamn:{item.AccountName}- Kontonummer: {item.AccountNumber}- Saldo: {item.Balance()}");
+            Console.WriteLine($"[{index}] Kontonamn:{item.AccountName}- Kontonummer: {item.AccountNumber}- Saldo: {item.Balance()} Räntesumma: {yearlyInterest}");
 
             index++;
         }
