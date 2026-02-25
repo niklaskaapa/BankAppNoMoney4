@@ -15,7 +15,7 @@ namespace BankAppNoMoney.Base
 
         internal string AccountNumber { get; set; } = "";
         
-        internal decimal InterestRate { get; set; } = 0.023m;
+        internal decimal InterestRate { get; set; } = 0;
         internal decimal InterestAmount { get; set; } = 0;
 
         protected List<BankTransaction> bankTransactions = new List<BankTransaction>();
