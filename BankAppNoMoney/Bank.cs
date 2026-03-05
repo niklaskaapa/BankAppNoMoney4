@@ -1,5 +1,8 @@
 ﻿using BankAppNoMoney.Accounts;
 using BankAppNoMoney.Base;
+using BankAppNoMoney.Factories;
+using BankAppNoMoney.Models;
+using BankAppNoMoney.Types;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,19 +36,36 @@ internal class Bank
         return accounts;
     }
 
-    internal void ShowBankMenu()
+    internal ConsoleKeyInfo ShowBankMenu()
+    {
+        Console.WriteLine("----------Meny----------");
+        Console.WriteLine("1. Skapa konto tryck[S] ");
+        Console.WriteLine("2. Ta bort konto[T]");
+        Console.WriteLine("3. Visa konton[V]");
+        Console.WriteLine("4. Hantera konto[H]");
+
+        ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+        Console.Clear();
+
+        return keyInfo;
+
+
+    }
+
+    internal void ShowBankChoice()
     {
         while (true)
         {
+            ConsoleKeyInfo keyInfo = ShowBankMenu();
 
-            Console.WriteLine("----------Meny----------");
-            Console.WriteLine("1. Skapa konto tryck[S] "); 
-            Console.WriteLine("2. Ta bort konto[T]"); 
-            Console.WriteLine("3. Visa konton[V]"); 
-            Console.WriteLine("4. Hantera konto[H]");
+            //Console.WriteLine("----------Meny----------");
+            //Console.WriteLine("1. Skapa konto tryck[S] "); 
+            //Console.WriteLine("2. Ta bort konto[T]"); 
+            //Console.WriteLine("3. Visa konton[V]"); 
+            //Console.WriteLine("4. Hantera konto[H]");
 
-            ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-            Console.Clear();
+            //ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+            //Console.Clear();
 
             switch (char.ToUpper(keyInfo.KeyChar))
             {
@@ -83,10 +103,14 @@ internal class Bank
 
     internal void CreateAccount()
     {
+       
+
         Console.WriteLine("Vill du skapa:");
         Console.WriteLine("Bankaccount [B]");
         Console.WriteLine("IskAccount [I]");
         Console.WriteLine("UddevallaAccount [U]");
+        Console.WriteLine("TjörnAccount [T]");
+        Console.WriteLine("StenungsundAccount [S]");
 
         ConsoleKeyInfo keyInfo = Console.ReadKey(true);
         Console.Clear();
@@ -94,7 +118,7 @@ internal class Bank
         char choice = char.ToUpper(keyInfo.KeyChar);
 
         // Kolla så användare väljer rätt bokstav
-        if (choice != 'B' && choice != 'I' && choice != 'U')
+        if (choice != 'B' && choice != 'I' && choice != 'U' && choice != 'T' && choice != 'S')
         {
             Console.WriteLine("Fel val!");
             Console.ReadLine();
@@ -108,32 +132,49 @@ internal class Bank
         Console.Write("Ange kontonummer (11 siffror): ");
         string number = Console.ReadLine();
 
-        AccountBase newAccount = null;
+        var accountDetails = new AccountDetails
+        { AccountName = name, AccountNumber = number};
+       
+        //AddAccount(account);
+
+        //AccountBase newAccount = null;
 
         try
         {
             switch (choice)
             {
                 case 'B':
-                    newAccount = new BankAccount(name, number);
+                    // newAccount = new BankAccount(name, number);
+
+                    accountDetails.AccountType = AccountType.BankAccount;
                     break;
 
                 case 'I':
-                    newAccount = new IskAccount(name, number);
+                    accountDetails.AccountType = AccountType.ISKAccount;
+                   // newAccount = new IskAccount(name, number);
                     break;
 
                 case 'U':
-                    newAccount = new UddevallaAccount(name, number);
+                    accountDetails.AccountType = AccountType.UddevallaAccount;
+                   // newAccount = new UddevallaAccount(name, number);
+                    break;
+                case 'T':
+                    accountDetails.AccountType = AccountType.TjörnAccount;
+                    break;
+                    case 'S':
+                    accountDetails.AccountType = AccountType.StenungsundAccount;
                     break;
             
             }
 
-        
-            AddAccount(newAccount);
+            var account = AccountFactory.CreateAccount(accountDetails);
+
+            AddAccount(account);
+            // AddAccount(newAccount);
 
             Console.WriteLine("Konto skapat!");
-            Console.WriteLine($"Namn: {newAccount.AccountName}");
-            Console.WriteLine($"Nummer: {newAccount.AccountNumber}");
+            //Console.WriteLine($"Namn: {newAccount.AccountName}");
+            //Console.WriteLine($"Nummer: {newAccount.AccountNumber}");
 
 
         }
@@ -281,7 +322,8 @@ internal class Bank
                 case 'A':
                     Console.WriteLine("Avsluta");
                     Console.WriteLine("Åter till huvudmeny...");
-                    ShowBankMenu();
+                    //ShowBankMenu();
+                    return;
                     break;
                 default:
                     Console.WriteLine("Fel input!");

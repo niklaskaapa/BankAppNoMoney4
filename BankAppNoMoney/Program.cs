@@ -15,7 +15,7 @@ internal class Program
 
         testData.TestCalculateInteresRate(bank);
 
-        bank.ShowBankMenu();
+        bank.ShowBankChoice();
         
 
         //new Bank().ShowBankMenu();

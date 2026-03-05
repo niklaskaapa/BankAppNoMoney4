@@ -53,13 +53,13 @@ namespace BankAppNoMoney.Base
                 return;
             } 
 
-            var t = new BankTransaction
+            var transaction = new BankTransaction
             {
                 Amount = amount,
                 TransactionDate = DateTime.Now
             };
 
-            bankTransactions.Add(t);
+            bankTransactions.Add(transaction);
 
             Console.WriteLine("Du har satt in " + amount + " kr");
 
@@ -80,13 +80,13 @@ namespace BankAppNoMoney.Base
                 return;
             }
 
-            var t = new BankTransaction
+            var transaction = new BankTransaction
             {
                 Amount = -amount,
                 TransactionDate = DateTime.Now
             };
 
-            bankTransactions.Add(t);
+            bankTransactions.Add(transaction);
 
             Console.WriteLine("Du har tagit ut " + amount + " kr");
 
@@ -129,13 +129,13 @@ namespace BankAppNoMoney.Base
 
         internal void DepositWithDate(decimal amount, DateTime date)
         {
-            var t = new BankTransaction
+            var transaction = new BankTransaction
             {
                 Amount = amount,
                 TransactionDate = date
             };
 
-            bankTransactions.Add(t);
+            bankTransactions.Add(transaction);
         }
 
 
